@@ -47,7 +47,7 @@ namespace RuneApp {
 				try {
 #endif
 					LoadSaveResult loadResult = 0;
-					do {
+					//do {
 						loadResult = Program.FindSave();
 						switch (loadResult) {
 							case LoadSaveResult.Success:
@@ -62,14 +62,14 @@ namespace RuneApp {
 								}
 								break;
 						}
-					} while (loadResult != LoadSaveResult.Success);
+					//} while (loadResult != LoadSaveResult.Success);
 
 					loadResult = 0;
-					do {
+					//do {
 						loadResult = Program.LoadBuilds();
 						switch (loadResult) {
 							case LoadSaveResult.Failure:
-								if (MessageBox.Show("Save was invalid while loading builds.\r\nManually locate a save file?", "Load Builds", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+								if (MessageBox.Show("Save was invalid while loading builds.\r\nManually locate a build file?", "Load Builds", MessageBoxButtons.YesNo) == DialogResult.Yes) {
 									loadResult = loadSaveDialogue();
 								}
 								break;
@@ -80,7 +80,7 @@ namespace RuneApp {
 							default:
 								break;
 						}
-					} while (loadResult != LoadSaveResult.Success);
+					//} while (loadResult != LoadSaveResult.Success);
 
 					this.Invoke((MethodInvoker)delegate {
 

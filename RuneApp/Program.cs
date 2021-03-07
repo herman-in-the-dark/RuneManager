@@ -746,7 +746,14 @@ namespace RuneApp {
 				// unlock current build (if present)
 				if (build.Mon?.Current != null) 
 					build.Mon?.Current.Unlock();
-				
+
+				// unlock runes on current loadout (if present)
+				var load = loads.FirstOrDefault(l => l.BuildID == build.ID);
+				if (load != null)
+					load.Unlock();
+
+
+
 				build.GenRunes(data);
 
 				#region Check enough runes
